@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    <p>Hvor mange timer har du fløjet i år?</p>
+    <input type="text" id="timer">
+
+    <button>Klik og beregn dit co2 forbrug, kig i konsollen</button>
+
+    <script>
+        document.querySelector("button").addEventListener("click", buttonClicked);
+
+        function buttonClicked() {
+            let timer = document.querySelector("#timer").value;
+            let co2 = 109;
+            let co2UdledtIKgVedFlyrejse = timer * co2;
+            let resultat;
+            if (isNaN(co2UdledtIKgVedFlyrejse)) {
+                resultat = "Det er ikke et tal, prøv igen!";
+
+            } else if (co2UdledtIKgVedFlyrejse < 100) {
+                resultat = `Du har fløjet ${timer} timer og udledt ${co2UdledtIKgVedFlyrejse} kg co2. Du er tæt på Thundberg!`;
+
+            } else if (co2UdledtIKgVedFlyrejse < 200) {
+                resultat = `Du har fløjet ${timer} timer og udledt ${co2UdledtIKgVedFlyrejse} kg co2. Ja ja, du behøver ikke at melde dig ud ad Å!`;
+
+            } else if (co2UdledtIKgVedFlyrejse < 600) {
+                resultat = `Du har fløjet ${timer} timer og udledt ${co2UdledtIKgVedFlyrejse} kg co2. Det er godt for tursimen i Nordeuropa!`;
+
+            } else {
+                resultat = `Du har fløjet ${timer} timer og udledt ${co2UdledtIKgVedFlyrejse} kg co2. Nå ja vi kan jo altid kolonisere en anden planet...`;
+            }
+
+            console.log(resultat);
+
+        }
+
+        function co2UdledtIKgVedFlyrejse(timer, co2) {
+            return timer * c02;
+        }
+    </script>
+</body></html>
