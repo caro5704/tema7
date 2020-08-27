@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titel</title>
+    <link rel="stylesheet" href="">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        main {
+            width: 80vw;
+            margin: 0 auto;
+        }
+
+        section {
+            display: flex;
+            flex-wrap: wrap;
+            /*
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-gap: 20px;
+*/
+        }
+
+        article {
+            flex-basis: 50%;
+            border: 1px solid #eee;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1,
+        footer {
+            text-align: center;
+        }
+
+        header,
+        footer {
+            padding: 10px 0;
+            border: 1px solid #888;
+        }
+    </style>
+
+</head>
+
+<body>
+    <header>
+        <h1>Titel</h1>
+    </header>
+    <main>
+        <h2>Overskrift</h2>
+        <section>
+            <article>
+                <img src="https://placeimg.com/400/300/arch" alt=" arkitektur">
+                <h3>Artikel 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae nihil alias, odit dolorem maxime, autem perspiciatis quos unde culpa voluptatum laudantium modi illum, possimus tempore quia sint impedit. Corrupti, similique?</p>
+            </article>
+
+            <article>
+                <img src="https://placeimg.com/400/300/nature" alt="narue">
+                <h3>Artikel 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam perferendis vero ex numquam repudiandae aperiam, architecto. Reiciendis iure, quos quam! Atque aliquam dicta illum magni hic similique eos quas optio?</p>
+            </article>
+        </section>
+    </main>
+
+    <footer>Footer</footer>
+
+    <script>
+        const title = document.querySelector("header h1");
+        const article1 = document.querySelector("article:nth-child(1)");
+        const img1 = document.querySelector("article:nth-child(1) img");
+        const articleHeading = document.querySelector("article:nth-child(1) h3");
+        const articleContent = document.querySelector("article:nth-child(1) p");
+
+        title.textContent = "Billeder";
+        articleHeading.textContent = "Arkitektur";
+        articleContent.textContent = "Forskellige slags bygninger, og bygningsværker."
+
+        img1.src = "pool.JPG";
+        img1.alt = "Vandet i en pool";
+
+        let newArticle = document.createElement("article");
+        let newH3 = document.createElement("h3");
+        let newHeadlineText = document.createTextNode("Tech");
+        newH3.appendChild(newHeadlineText);
+        let newPic = document.createElement("imng");
+        newPic.src = "https://placeimg.com/400/300/tech";
+        let newContent = document.createElement("p");
+        newContent.textContent = "Det her er teknologi";
+        newArticle.appendChild(newPic);
+        newArticle.appendChild(newH3);
+        newArticle.appendChild(newContent);
+        articleSection.appendChild(newArticle);
+    </script>
+</body></html>
