@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bistro Babushka</title>
+    <style>
+        article {
+            padding: 10px;
+            font-family: sans-serif;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        section {
+            width: 90vw;
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        }
+
+        button {
+            color: red;
+            background-color: #fff;
+            border: none;
+            font-size: 20px;
+            font-family: monospace;
+            /*
+            max-width: 900px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            flex-direction: row;
+            align-content: center;
+*/
+        }
+
+        .valgt {
+            color: darkred;
+        }
+
+        h1 {
+            text-align: center;
+            font-family: monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Menu</h1>
+
+    <header>
+        <button class="filter valgt" data-kategori="alle">Alle</button>
+        <button class="filter" data-kategori="drikkevarer">Drikkevarer</button>
+        <button class="filter" data-kategori="forretter">Forretter</button>
+        <button class="filter" data-kategori="hovedretter">Hovedretter</button>
+        <button class="filter" data-kategori="desserter">Desserter</button>
+        <button class="filter" data-kategori="sideorders">Sideorders</button>
+    </header>
+
+    <section>
+
+    </section>
+
+    <template>
+        <article>
+            <img src="" alt="">
+            <h2 class="navn"></h2>
+            <!--            <p class="kategori"></p>-->
+            <p class="kort"></p>
+            <p class="pris"></p>
+            <!--            <p class="lang"></p>-->
+            <!--            <p class="oprindelse"></p>-->
+        </article>
+    </template>
+
+    <script>
+        let filter = "alle";
+        let container = document.querySelector("section");
+        let temp = document.querySelector("template");
+        let personer;
+
+        const link = "https://spreadsheets.google.com/feeds/list/17Dd7DvkPaFamNUdUKlrFgnH6POvBJXac7qyiS6zNRw0/od6/public/values?alt=json";
+
+        async function hentdata() {
+            const respons = await fetch(link);
+            personer = await respons.json();
+            visPersoner();
+            addEventListenersToButtons();
+        }
+
+        function visPersoner() {
+            console.log(personer);
+            container.textContent = "";
+            //løb igennem array "dyr"
+            personer.feed.entry.forEach(person => {
+                if (filter == "alle" || filter == person.gsx$kategori.$t.toLocaleLowerCase()) {
+                    console.log(person);
+                    let klon = temp.cloneNode(true).content;
+                    klon.querySelector(".navn").textContent = person.gsx$navn.$t;
+                    //                    klon.querySelector(".kategori").textContent = person.gsx$kategori.$t;
+                    klon.querySelector(".kort").textContent = person.gsx$kort.$t;
+                    klon.querySelector(".pris").textContent = person.gsx$pris.$t + ",-";
+                    //                    klon.querySelector(".lang").textContent = person.gsx$lang.$t;
+                    //                    klon.querySelector(".oprindelse").textContent = person.gsx$oprindelse.$t;
+                    klon.querySelector("img").src = "imgs/small/" + person.gsx$billede.$t + "-sm.jpg";
+                    container.appendChild(klon);
+                }
+            })
+        }
+
+        function addEventListenersToButtons() {
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.addEventListener("click", filterBTNs);
+            })
+        }
+
+        function filterBTNs() {
+            filter = this.dataset.kategori;
+            document.querySelector("h1").textContent = this.textContent;
+            document.querySelectorAll(".filter").forEach((btn) => {
+                btn.classList.remove("valgt");
+            })
+
+            this.classList.add("valgt");
+            visPersoner();
+        }
+
+        hentdata();
+    </script>
+</body></html>
