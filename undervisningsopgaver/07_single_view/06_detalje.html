@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>JS Objekter</title>
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        /*        POPOP*/
+        #popop {
+            left: 0;
+            top: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, .8);
+        }
+
+        #popop article {
+            width: 50vw;
+            height: 60vh;
+            margin: 4rem auto;
+            background-color: beige;
+            border-radius: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            flex-direction: column;
+        }
+
+        #luk {
+            position: fixed;
+            top: 5em;
+            right: 24em;
+            background-color: #fff;
+            color: #000;
+            border-radius: 5px;
+            padding: .1em;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!--POPOP-->
+    <section id="popop">
+        <article>
+            <button id="luk">X</button>
+            <h2></h2>
+            <img src="" alt="">
+            <p>Alder: <span class="alder"></span></p>
+            <p>Nationalitet: <span class="land"></span></p>
+            <p>Religion: <span class="religion"></span></p>
+            <p>Bopæl: <span class="by"></span></p>
+            <p>Job: <span class="job"></span></p>
+            <p>Hobby: <span class="hobby"></span></p>
+
+        </article>
+    </section>
+
+    <script>
+        const popop = document.querySelector("#popop");
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = urlParams.get("id");
+
+        const link = "https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json";
+
+        document.addEventListener("DOMContentLoaded", loadJSON)
+
+        async function hentdata() {
+            const JSONData = await
+            const respons = await fetch(link);
+            const json = await respons.json();
+            vis(json);
+        }
+
+        function vis(personer) {
+            console.log(personer);
+            personer.feed.entry.forEach(person => {
+                if (id == person.gsx$id.$t) {
+                    visDetaljer(person);
+                }
+            })
+        }
+
+        function visDetaljer(person) {
+            console.log(person);
+            popop.style.display = "block";
+            popop.querySelector("h2").textContent = person.gsx$navn.$t;
+            popop.querySelector("img").src = person.gsx$billede.$t;
+            popop.querySelector("h2").textContent = person.gsx$navn.$t;
+            popop.querySelector(".alder").textContent = person.gsx$alder.$t;
+            popop.querySelector(".land").textContent = person.gsx$land.$t;
+            popop.querySelector(".religion").textContent = person.gsx$religion.$t;
+            popop.querySelector(".by").textContent = person.gsx$by.$t;
+            popop.querySelector(".job").textContent = person.gsx$job.$t;
+            popop.querySelector(".hobby").textContent = person.gsx$hobby.$t;
+        }
+
+        document.querySelector("#luk").addEventListener("click", () => history.back());
+
+
+        //        let filter = "alle";
+        //        let container = document.querySelector("#liste");
+        //        let temp = document.querySelector("template");
+        //        let personer;
+        //
+        //        const link = "https://spreadsheets.google.com/feeds/list/1mtHhpoEkYqVqr1TSnKQ1_sQZWI7FRVjcw3H1oatDOVQ/od6/public/values?alt=json";
+        //
+        //        async function hentdata() {
+        //            const respons = await fetch(link);
+        //            personer = await respons.json();
+        //            visPersoner();
+        //            addEventListenersToButtons();
+        //        }
+        //
+        //        function visPersoner() {
+        //            console.log(personer);
+        //            container.textContent = "";
+        //            //løb igennem array "dyr"
+        //            personer.feed.entry.forEach(person => {
+        //                if (id == person.gsx$id.$t) {
+        //                    visDetaljer(person);
+        //                }
+        //            })
+        //        }
+        //
+        //
+        //        function visDetaljer(person) {
+        //            console.log(person);
+        //            popop.style.display = "block";
+        //            popop.querySelector("h2").textContent = person.gsx$navn.$t;
+        //            popop.querySelector("h2").textContent += " " + person.gsx$efternavn.$t;
+        //            popop.querySelector("img").src = person.gsx$billede.$t;
+        //            popop.querySelector(".alder").textContent = person.gsx$alder.$t;
+        //            popop.querySelector(".land").textContent = person.gsx$land.$t;
+        //            popop.querySelector(".religion").textContent = person.gsx$religion.$t;
+        //            popop.querySelector(".by").textContent = person.gsx$by.$t;
+        //            popop.querySelector(".job").textContent = person.gsx$job.$t;
+        //            popop.querySelector(".hobby").textContent = person.gsx$hobby.$t;
+        //
+        //        }
+        //
+        //        document.querySelector("#luk").addEventListener("click", () => history.back());
+        //
+        //        function addEventListenersToButtons() {
+        //            document.querySelectorAll(".filter").forEach((btn) => {
+        //                btn.addEventListener("click", filterBTNs);
+        //            })
+        //        }
+        //
+        //        function filterBTNs() {
+        //            filter = this.dataset.køn;
+        //            document.querySelector("h1").textContent = this.textContent;
+        //            document.querySelectorAll(".filter").forEach((btn) => {
+        //                btn.classList.remove("valgt");
+        //            })
+        //
+        //            this.classList.add("valgt");
+        //            visPersoner();
+        //        }
+        //
+        //        hentdata();
+
+    </script>
+</body>
+
+</html>
