@@ -1,69 +1,104 @@
- * {
-     font-family: sans-serif;
- }
+body {
+    background-color: #E5EDF6;
+}
 
- article {
-     padding: 10px;
- }
+article {
+    padding: 10px;
+}
 
- img {
-     max-width: 100%;
- }
+img {
+    max-width: 100%;
+}
 
- #liste {
-     width: 90vw;
-     max-width: 1100px;
-     margin: 0 auto;
-     display: grid;
-     grid-gap: 10px;
-     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
- }
+#liste {
+    width: 90vw;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 
- button {
-     color: darkred;
-     background-color: #fff;
-     border: none;
-     font-size: 20px;
-     font-family: monospace;
- }
+    font-family: bicyclette, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
 
- .valgt {
-     color: red;
- }
+#liste .pris {
+    font-family: bicyclette, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
 
- h1 {
-     text-align: center;
-     font-family: monospace;
- }
+button {
+    color: darkblue;
+    background-color: #fff;
+    border: none;
+    font-size: 20px;
+    font-family: gravesend-sans, sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    ;
+}
 
- /*        POPOP*/
- #popop {
-     position: fixed;
-     left: 0;
-     top: 0;
-     width: 80vw;
-     height: 80vh;
-     background-color: rgba(0, 0, 0, .8);
-     display: none;
- }
+.valgt {
+    color: #BA0000;
+}
 
- #popop article {
-     width: 50vw;
-     height: 60vh;
-     margin: 4rem auto;
-     background-color: beige;
-     border-radius: 10px;
-     display: flex;
-     flex-wrap: wrap;
-     flex-direction: column;
- }
+h1 {
+    text-align: center;
+    font-family: krok, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    ;
+}
 
- #luk {
-     position: fixed;
-     top: 5em;
-     right: 24em;
-     background-color: #fff;
-     color: #000;
-     border-radius: 5px;
-     padding: .1em;
- }
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/*        POPOP*/
+#popop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .8);
+    display: none;
+    font-family: bicyclette, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#popop article {
+    width: 50vw;
+    height: 70vh;
+    margin: 4rem auto;
+    background-color: beige;
+    border-radius: 10px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+#popop .pris {
+    font-family: bicyclette, sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+#luk {
+    position: fixed;
+    top: 3.8em;
+    right: 18em;
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: .1em;
+}
