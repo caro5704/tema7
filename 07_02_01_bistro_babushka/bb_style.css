@@ -1,7 +1,9 @@
 body {
     background-color: #fff;
+    /*
     background-image: url(artboard.png);
     background-size: 100%;
+*/
 }
 
 article {
@@ -40,7 +42,11 @@ button {
     font-family: gravesend-sans, sans-serif;
     font-weight: 500;
     font-style: normal;
-    ;
+    /*
+    font-family: nautica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+*/
 }
 
 .valgt {
@@ -49,10 +55,20 @@ button {
 
 h1 {
     text-align: center;
-    font-family: krok, sans-serif;
+
+    font-family: krok,
+        sans-serif;
     font-weight: 400;
     font-style: normal;
-    ;
+
+
+    /*
+    font-size: 40px;
+    font-family: nautica, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+*/
+
 }
 
 header {
@@ -81,7 +97,7 @@ header {
     height: 70vh;
     margin: 4rem auto;
     background-color: #fff;
-    border-radius: 5px;
+    border-radius: 2px;
 
     display: flex;
     flex-wrap: wrap;
