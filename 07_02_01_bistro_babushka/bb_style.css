@@ -1,9 +1,37 @@
 body {
-    background-color: #fff;
-    /*
-    background-image: url(artboard.png);
-    background-size: 100%;
-*/
+    background-color: #FFFCF4;
+}
+
+
+.container {
+    position: relative;
+    width: 100%;
+}
+
+/* Make the image responsive */
+.container img {
+    width: 100%;
+    height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    *-ms-transform: translate(-50%, -50%);
+    background-color: transparent;
+    color: #000;
+    font-size: 80px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: sloop-script-one, sans-serif;
+    font-weight: 700;
+    font-style: normal;
+
 }
 
 article {
@@ -36,17 +64,13 @@ img {
 
 button {
     color: darkblue;
-    background-color: #fff;
+    background-color: #FFFCF4;
     border: none;
-    font-size: 20px;
-    font-family: gravesend-sans, sans-serif;
-    font-weight: 500;
+
+    font-size: 30px;
+    font-family: sloop-script-one, sans-serif;
+    font-weight: 400;
     font-style: normal;
-    /*
-    font-family: nautica, sans-serif;
-    font-weight: 700;
-    font-style: normal;
-*/
 }
 
 .valgt {
@@ -56,19 +80,17 @@ button {
 h1 {
     text-align: center;
 
-    font-family: krok,
-        sans-serif;
+    font-size: 40px;
+    font-family: sloop-script-one, sans-serif;
     font-weight: 400;
     font-style: normal;
+}
 
-
-    /*
+h2 {
     font-size: 40px;
-    font-family: nautica, sans-serif;
-    font-weight: 700;
+    font-family: sloop-script-one, sans-serif;
+    font-weight: 400;
     font-style: normal;
-*/
-
 }
 
 header {
@@ -94,7 +116,7 @@ header {
 
 #popop article {
     width: 50vw;
-    height: 70vh;
+    height: 80vh;
     margin: 4rem auto;
     background-color: #fff;
     border-radius: 2px;
@@ -115,10 +137,14 @@ header {
 
 #luk {
     position: fixed;
-    top: 3.8em;
+    top: 3.5em;
     right: 18em;
     background-color: #fff;
     color: #000;
     border-radius: 5px;
-    padding: .2em;
+
+    font-size: 20px;
+    font-family: gravesend-sans, sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
