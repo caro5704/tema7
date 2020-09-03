@@ -1,5 +1,7 @@
 body {
-    background-color: #E5EDF6;
+    background-color: #fff;
+    background-image: url(artboard.png);
+    background-size: 100%;
 }
 
 article {
@@ -8,6 +10,7 @@ article {
 
 img {
     max-width: 100%;
+    border-radius: 2px;
 }
 
 #liste {
@@ -77,14 +80,15 @@ header {
     width: 50vw;
     height: 70vh;
     margin: 4rem auto;
-    background-color: beige;
-    border-radius: 10px;
+    background-color: #fff;
+    border-radius: 5px;
 
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    text-align: center;
 }
 
 #popop .pris {
@@ -100,5 +104,5 @@ header {
     background-color: #fff;
     color: #000;
     border-radius: 5px;
-    padding: .1em;
+    padding: .2em;
 }
